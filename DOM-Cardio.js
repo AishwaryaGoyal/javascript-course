@@ -28,7 +28,7 @@ const image = document.createElement("img");
 // set the source to an image
 image.src = "https://source.unsplash.com/random/200";
 // set the width to 250
-image.width = "250";
+image.width = 250;
 // add a class of cute
 image.classList.add("cute");
 // add an alt of Cute Puppy
@@ -91,7 +91,8 @@ div.insertAdjacentElement("beforebegin", newDiv);
 const buttons = document.querySelectorAll(".delete");
 
 function deleteCard(event) {
-  event.currentTarget.parentElement.remove();
+  //event.currentTarget.parentElement.remove();
+  event.currentTarget.closest(".playerCard").remove();
 }
 
 buttons.forEach((button) => button.addEventListener("click", deleteCard));
