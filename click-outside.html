@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title></title>
+  </head>
+
+  <body background="./images/background.png">
+    <div class="cards">
+      <div class="card" data-description="Aish is cool">
+        <img src="https://picsum.photos/200?random=1" alt="Wes Bos" />
+        <h2>Aishwarya Goyal</h2>
+        <button>Learn more →</button>
+      </div>
+      <div class="card" data-description="Kia is neat!">
+        <img src="https://picsum.photos/200?random=2" alt="Wes Bos" />
+        <h2>Kia Juneja</h2>
+        <button>Learn more →</button>
+      </div>
+      <div class="card" data-description="Rehman is beautiful!">
+        <img src="https://picsum.photos/200?random=3" alt="Wes Bos" />
+        <h2>Rehman Goel</h2>
+        <button>Learn more →</button>
+      </div>
+      <div class="card" data-description="Bar one is a chocolate!">
+        <img src="https://picsum.photos/200?random=4" alt="Wes Bos" />
+        <h2>Bar one the chocolate</h2>
+        <button>Learn more →</button>
+      </div>
+    </div>
+
+    <div class="modal-outer">
+      <div class="modal-inner"></div>
+    </div>
+
+    <style>
+      .modal-outer {
+        position: fixed;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .modal-outer img {
+        width: 100%;
+      }
+
+      .modal-outer.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .modal-inner {
+        background-color: white;
+        width: 100%;
+
+        padding: 1rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 20px;
+      }
+
+      .card {
+        background: white;
+        padding: 1rem;
+        border-radius: 3px;
+      }
+
+      .card img {
+        width: 100%;
+      }
+
+      button {
+        font-size: 16px;
+        background-color: coral;
+        padding: 1rem 2rem;
+        border-style: none;
+        border-radius: 1px;
+        color: white;
+      }
+
+      button:hover {
+        background-color: brown;
+        border: black 5px solid;
+      }
+    </style>
+    <script src="./click-outside.js"></script>
+  </body>
+</html>
