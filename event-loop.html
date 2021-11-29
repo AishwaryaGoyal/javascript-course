@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Event Loop</title>
+    <style>
+      .go {
+        padding: 1rem 2rem;
+        background-color: cadetblue;
+        width: 20rem;
+        height: 20rem;
+        transition: border-radius 0.1s, background-color 0.1s, opacity 0.1s;
+      }
+
+      .go.circle {
+        border-radius: 50%;
+      }
+
+      .go.red {
+        background-color: red;
+      }
+
+      .go.purple {
+        background-color: purple;
+      }
+
+      .go.fadeout {
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="go">Click Me</div>
+    <script>
+      const go = document.querySelector(".go");
+      //Change the text to go when clicked
+      go.addEventListener("click", function () {
+        go.textContent = "Go!";
+
+        //Make it a circle after 2s
+        setTimeout(function () {
+          go.classList.add("circle");
+
+          //Make it red after 0.5s
+          setTimeout(() => {
+            go.classList.add("red");
+
+            //Make it square after 0.25s
+            setTimeout(() => {
+              go.classList.remove("circle");
+
+              //Make it purple after 0.3 s
+              setTimeout(() => {
+                go.classList.remove("red");
+                go.classList.add("purple");
+
+                //Fade out after 0.5s
+                setTimeout(() => {
+                  go.classList.add("fadeout");
+                }, 500);
+              }, 300);
+            }, 250);
+          }, 500);
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>
