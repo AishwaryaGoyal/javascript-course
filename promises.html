@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Promises</title>
+  </head>
+
+  <body>
+    <script>
+      function makePizza(toppings = []) {
+        const timeToBake = 500 + 200 * toppings.length;
+        const pizzaPromise = new Promise(function (resolve, reject) {
+          if (toppings.includes("pineapple")) {
+            reject("Seriously? Get out!🍍");
+          }
+          setTimeout(() => {
+            resolve(
+              `Here is your Pizza🍕 with toppings ${toppings.join(", ")}.`
+            );
+          }, timeToBake);
+        });
+        return pizzaPromise;
+      }
+
+      const pepperoniPromise = makePizza(["pepperoni"]);
+      const farmhousePromise = makePizza([
+        "mushrooms",
+        "tomatoes",
+        "capsicum",
+        "onions",
+      ]);
+      const veggiePromise = makePizza([
+        "olives",
+        "capsicum",
+        "paneer",
+        "corn",
+        "jalapeno",
+        "red pepper",
+      ]);
+      console.log(pepperoniPromise, farmhousePromise, veggiePromise);
+
+      pepperoniPromise.then(function (pizza) {
+        console.log("-----Separate Promises-----");
+        console.log(pizza);
+        console.log("Got it!");
+      });
+
+      farmhousePromise.then(function (pizza) {
+        console.log(pizza);
+        console.log("Got it too!");
+      });
+
+      veggiePromise.then(function (pizza) {
+        console.log(pizza);
+        console.log("Got the veggie one");
+      });
+
+      const dinnerPromise = Promise.all([
+        pepperoniPromise,
+        farmhousePromise,
+        veggiePromise,
+      ]);
+
+      dinnerPromise.then(function ([first, second, third]) {
+        console.log("-----Promise.all-----");
+        console.log(first);
+        console.log(second);
+        console.log(third);
+      });
+
+      //Try to make an illegal pizza!
+      makePizza(["cheese", "pineapple"])
+        .then((pizza) => console.log("pizzzzZ", pizza))
+        .catch((err) => console.log(err));
+    </script>
+  </body>
+</html>
