@@ -1,0 +1,14 @@
+{
+  "name": "javascript-course",
+  "version": "1.0.0",
+  "description": "for cors recipes",
+  "main": "cors-recipes.html",
+  "scripts": {
+    "start": "parcel dad-jokes.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
